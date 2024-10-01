@@ -113,30 +113,21 @@ Feed.Header = () => {
           paddingTop: "5px",
         }}
       >
-        <Link
-          target="_blank"
-          href={templateConfig?.personal?.socialNetworks.youtube}
-        >
-          <Icon name="youtube" />
-        </Link>
-        <Link
-          target="_blank"
-          href={templateConfig?.personal?.socialNetworks.twitter}
-        >
-          <Icon name="twitter" />
-        </Link>
-        <Link
-          target="_blank"
-          href={templateConfig?.personal?.socialNetworks.instagram}
-        >
-          <Icon name="instagram" />
-        </Link>
-        <Link
-          target="_blank"
-          href={templateConfig?.personal?.socialNetworks.github}
-        >
-          <Icon name="github" />
-        </Link>
+      {Object.keys(templateConfig?.personal?.socialNetworks).map(key=>{
+         const socialNetwoork = templateConfig.personal.socialNetworks[key];
+         if(socialNetwoork){
+            return(
+              <Link
+              key={key}
+              target="_blank"
+              href={templateConfig?.personal?.socialNetworks[key]}
+            >
+              <Icon name={key as any} />
+            </Link>
+            )
+         }
+      })}
+
       </Box>
     </Box>
   );
