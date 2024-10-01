@@ -1,16 +1,16 @@
 
 import Box from "@src/components/Box/Box";
-import Text from "@src/components/Text/Text";
 import BackGround from "./patterns/BackGround/BackGround";
 import Menu from "./patterns/Menu/Menu";
 import Feed from "./patterns/Feed/Feed";
 import Footer from "./patterns/Footer/Footer";
 import { useTheme } from "@src/theme/ThemeProvider" ;
-import Link from "../../components/Link/Link";
+import templatePageHOC from "@src/services/template/templatePageHOC";
 
-//import templateConfig from "../../../template-config.yml";
 
-export default function HomeScreen(){
+
+function HomeScreen(props){
+  console.log('em homeScreen ==>> ',props)
   const theme = useTheme();
   return(
   <Box
@@ -31,3 +31,5 @@ export default function HomeScreen(){
    </Box>
  )
 }
+
+export default templatePageHOC(HomeScreen,{title:"Home"});
