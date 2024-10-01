@@ -1,5 +1,6 @@
 import Head from "next/head";
 import type { TemplateConfig } from "./whitTemplateConfig";
+import { TemplateConfigProvider } from "./templateConfigContext";
 interface templatePageHOCProps {
   title?: string;
 }
@@ -19,7 +20,10 @@ export default function templatePageHOC(
               : props.templateConfig.site.title}
           </title>
         </Head>
+        <TemplateConfigProvider value={props.templateConfig}>
         <Componet {...props} />
+        </TemplateConfigProvider>
+
       </>
     );
   };

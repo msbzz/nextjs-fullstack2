@@ -3,7 +3,7 @@ site :
   description: "Bem vindo a minha timeline pessoal"
 personal:
    name: "Mario Souto"
-   avatar: "https://github.com/omairiosouto.png"
+   avatar: "http://github.com/omariosouto.png"
    socialNetworks:
       youtube: "https://www.youtube.com/devsoutinho"
       github: "https://www.youtube.com/omariosouto"

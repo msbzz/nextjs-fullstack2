@@ -6,6 +6,7 @@ import Button from "@src/components/Button/Button";
 import { useTheme } from "@src/theme/ThemeProvider";
 import Link from "@src/components/Link/Link";
 import Icon from "@src/components/Icon/Icon";
+import { useTemplateConfig } from "@src/services/template/templateConfigContext";
 
 interface FeedProps {
   children: React.ReactNode;
@@ -32,6 +33,7 @@ export default function Feed({ children }) {
 
 Feed.Header = () => {
   const theme = useTheme();
+  const templateConfig = useTemplateConfig();
   return (
     <Box
       styleSheet={{
@@ -54,7 +56,7 @@ Feed.Header = () => {
             height: { xs: "100px", md: "128px" },
             borderRadius: "100%",
           }}
-          src="http://github.com/omariosouto.png"
+          src={templateConfig?.personal?.avatar}
           alt="imagem perfil"
         />
         <Box
@@ -94,7 +96,7 @@ Feed.Header = () => {
         </Box>
       </Box>
       <Text tag="h1" variant="heading4">
-        Mario Souto
+      {templateConfig?.personal?.name}
       </Text>
       <Text tag="h4" variant="body3">
         @omariosouto - DevSoutinho - Brasil
