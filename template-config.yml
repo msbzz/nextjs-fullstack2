@@ -1,0 +1,11 @@
+site :
+  title: "Mario Souto - Timeline"
+  description: "Bem vindo a minha timeline pessoal"
+personal:
+   name: "Mario Souto"
+   avatar: "https://github.com/omairiosouto.png"
+   socialNetworks:
+      youtube: "https://www.youtube.com/devsoutinho"
+      github: "https://www.youtube.com/omariosouto"
+
+

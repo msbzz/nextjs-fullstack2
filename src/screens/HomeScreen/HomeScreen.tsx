@@ -8,6 +8,8 @@ import Footer from "./patterns/Footer/Footer";
 import { useTheme } from "@src/theme/ThemeProvider" ;
 import Link from "../../components/Link/Link";
 
+//import templateConfig from "../../../template-config.yml";
+
 export default function HomeScreen(){
   const theme = useTheme();
   return(
