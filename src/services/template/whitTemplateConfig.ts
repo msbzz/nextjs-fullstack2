@@ -14,6 +14,7 @@ export interface TemplateConfig{
       github?: string;
       twitter?: string;
       linkedin?: string;
+      instagram?:string;
     }
   }
 }

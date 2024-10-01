@@ -6,6 +6,7 @@ import { ThemeTypographyVariants } from "@src/theme/theme";
 import { useTheme } from "@src/theme/ThemeProvider";
 interface LinkProps {
   href: string;
+  target?:string;
   children: React.ReactNode;
   styleSheet?: StyleSheet;
   variant?: ThemeTypographyVariants;

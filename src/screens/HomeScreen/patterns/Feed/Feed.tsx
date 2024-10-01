@@ -96,7 +96,7 @@ Feed.Header = () => {
         </Box>
       </Box>
       <Text tag="h1" variant="heading4">
-      {templateConfig?.personal?.name}
+        {templateConfig?.personal?.name}
       </Text>
       <Text tag="h4" variant="body3">
         @omariosouto - DevSoutinho - Brasil
@@ -104,19 +104,40 @@ Feed.Header = () => {
       <Text tag="h4" variant="body3">
         Sr Lead Software Engineer, Nubank
       </Text>
-      <Box styleSheet={{
-         display: "flex",
-         flexDirection: 'row',
-         justifyContent:"left",
-         gap:5 ,
-         paddingTop:'5px'
-      }}>
-        <Icon name="youtube" />
-        <Icon name="twitter" />
-        <Icon name="instagram" />
-        <Icon name="github" />
+      <Box
+        styleSheet={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "left",
+          gap: 5,
+          paddingTop: "5px",
+        }}
+      >
+        <Link
+          target="_blank"
+          href={templateConfig?.personal?.socialNetworks.youtube}
+        >
+          <Icon name="youtube" />
+        </Link>
+        <Link
+          target="_blank"
+          href={templateConfig?.personal?.socialNetworks.twitter}
+        >
+          <Icon name="twitter" />
+        </Link>
+        <Link
+          target="_blank"
+          href={templateConfig?.personal?.socialNetworks.instagram}
+        >
+          <Icon name="instagram" />
+        </Link>
+        <Link
+          target="_blank"
+          href={templateConfig?.personal?.socialNetworks.github}
+        >
+          <Icon name="github" />
+        </Link>
       </Box>
-
     </Box>
   );
 };
