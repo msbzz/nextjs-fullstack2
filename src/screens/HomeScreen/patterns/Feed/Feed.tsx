@@ -7,6 +7,7 @@ import { useTheme } from "@src/theme/ThemeProvider";
 import Link from "@src/components/Link/Link";
 import Icon from "@src/components/Icon/Icon";
 import { useTemplateConfig } from "@src/services/template/templateConfigContext";
+import type { Post } from "@src/services/posts/PostsService";
 
 interface FeedProps {
   children: React.ReactNode;
@@ -113,30 +114,37 @@ Feed.Header = () => {
           paddingTop: "5px",
         }}
       >
-      {Object.keys(templateConfig?.personal?.socialNetworks).map(key=>{
-         const socialNetwoork = templateConfig.personal.socialNetworks[key];
-         if(socialNetwoork){
-            return(
+        {Object.keys(templateConfig?.personal?.socialNetworks).map((key) => {
+          const socialNetwoork = templateConfig.personal.socialNetworks[key];
+          if (socialNetwoork) {
+            return (
               <Link
-              key={key}
-              target="_blank"
-              href={templateConfig?.personal?.socialNetworks[key]}
-            >
-              <Icon name={key as any} />
-            </Link>
-            )
-         }
-      })}
-
+                key={key}
+                target="_blank"
+                href={templateConfig?.personal?.socialNetworks[key]}
+              >
+                <Icon name={key as any} />
+              </Link>
+            );
+          }
+        })}
       </Box>
     </Box>
   );
 };
 
-Feed.Posts = () => {
+interface FeedPostsProps {
+  posts: Post[];
+}
+
+Feed.Posts = ({ posts }: FeedPostsProps) => {
+  //console.log('feed posts ==>',posts);
   return (
     <Box>
-      <Text>Feed Posts</Text>
+      {posts.map(({slug, title}) => {
+        //console.log('title ==>>',title);
+        return <Text key={String(slug)}>{title}</Text>;
+      })}
     </Box>
   );
 };

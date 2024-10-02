@@ -26,7 +26,7 @@ export default function PostsService() {
 
         const post:Post = {
           metadata:{
-             date :data.date.toString(),
+             date :new Date(data.date).toISOString(),
              url:data.url,
              excerpt:data.excerpt,
              tags:data.tags,
@@ -35,11 +35,11 @@ export default function PostsService() {
           title:data.title,
           content,
         }
-        console.log('item array ',post)
+        //console.log('item array ',post)
         return post
       });
       const posts = Promise.all(postsPromise);
-      console.log('array posts',posts);
+      //console.log('array posts',posts);
       return posts;
     },
   };
