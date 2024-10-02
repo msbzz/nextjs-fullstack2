@@ -1,6 +1,7 @@
 
 import path from "path";
 import fs from "fs/promises";
+import matter from "gray-matter";
 
 export interface Post{
   date : string;
@@ -20,7 +21,9 @@ export default function PostsService() {
       const posts = postFiles.map(async (postFileName)=>{
         const filePath = path.join(PATH_POSTS,postFileName);
         const postFile = await fs.readFile(filePath,{encoding:"utf-8"});
-        console.log('lendo posts ==>>',postFile);
+        const {data,content} = matter(postFile);
+        console.log('dados ==>>',data);
+        console.log('conteudo ==>>',content);
       });
 
       return [];

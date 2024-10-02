@@ -10,7 +10,7 @@ import templatePageHOC from "@src/services/template/templatePageHOC";
 
 
 function HomeScreen(props){
-  console.log('em homeScreen ==>> ',props)
+  //console.log('em homeScreen ==>> ',props)
   const theme = useTheme();
   return(
   <Box
