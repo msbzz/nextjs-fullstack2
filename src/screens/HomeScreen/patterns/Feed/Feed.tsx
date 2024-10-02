@@ -8,6 +8,7 @@ import Link from "@src/components/Link/Link";
 import Icon from "@src/components/Icon/Icon";
 import { useTemplateConfig } from "@src/services/template/templateConfigContext";
 import type { Post } from "@src/services/posts/PostsService";
+import { FeedPost } from "./patterns/FeedPost";
 
 interface FeedProps {
   children: React.ReactNode;
@@ -138,12 +139,18 @@ interface FeedPostsProps {
 }
 
 Feed.Posts = ({ posts }: FeedPostsProps) => {
-  //console.log('feed posts ==>',posts);
+
   return (
     <Box>
-      {posts.map(({slug, title}) => {
-        //console.log('title ==>>',title);
-        return <Text key={String(slug)}>{title}</Text>;
+      {posts.map(({slug, title,metadata}) => {
+        const {date, excerpt,tags,url} = metadata;
+        return <FeedPost key={String(slug)}
+         title={title}
+         date={date}
+         excerpt={excerpt}
+         tags={tags}
+         url={url}
+         />;
       })}
     </Box>
   );
