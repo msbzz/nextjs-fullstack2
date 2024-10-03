@@ -70,6 +70,15 @@ export function FeedPost({ title, excerpt, date, tags, url }: FeedPostProps) {
           {title}
         </Box>
       </Link>
+      {/* Resumo * Excerpt*/}
+      <Text
+        variant="body3"
+        styleSheet={{
+          marginBottom: "20px",
+        }}
+      >
+        {excerpt}
+      </Text>
     </Box>
   );
 }
