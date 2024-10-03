@@ -24,7 +24,7 @@ export default function Feed({ children }) {
         width: "100%",
         maxWidth: "683px",
         borderRadius: "8px",
-        paddingVertical: "40px",
+        paddingTop: "40px",
         paddingHorizontal: "32px",
       }}
     >
@@ -142,6 +142,9 @@ Feed.Posts = ({ posts }: FeedPostsProps) => {
 
   return (
     <Box>
+      <Text variant="heading3" styleSheet={{marginBottom:"27px"}}>
+        Útilmas atualizações
+      </Text>
       {posts.map(({slug, title,metadata}) => {
         const {date, excerpt,tags,url} = metadata;
         return <FeedPost key={String(slug)}
