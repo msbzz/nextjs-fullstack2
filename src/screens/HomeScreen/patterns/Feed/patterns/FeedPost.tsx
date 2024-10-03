@@ -79,6 +79,32 @@ export function FeedPost({ title, excerpt, date, tags, url }: FeedPostProps) {
       >
         {excerpt}
       </Text>
+            {/* Tags */}
+            <Box styleSheet={{
+        flexDirection: 'row',
+        gap: '4px',
+      }}>
+        {tags?.map((tag) => (
+          <Link
+            key={tag}
+            href={`/tags/${tag}`}
+            variant="body4"
+            styleSheet={{
+              color: theme.colors.neutral.x800,
+              backgroundColor: theme.colors.neutral.x100,
+              borderRadius: "1000px",
+              padding: '6px 8px',
+              hover: {
+                color: theme.colors.primary.x900,
+                backgroundColor: theme.colors.primary.x200,
+              }
+            }}
+            colorVariantEnabled={false}
+          >
+            #{tag}
+          </Link>
+        ))}
+      </Box>
     </Box>
   );
 }
