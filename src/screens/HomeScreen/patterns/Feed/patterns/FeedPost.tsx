@@ -15,17 +15,73 @@ interface FeedPostProps {
 }
 
 export function FeedPost({ title, excerpt, date, tags, url }: FeedPostProps) {
-  return(
-    <Box styleSheet={{
-      position :'relative',
-      paddingBotton:'35px',
-    }}>
-      {title}
+  const theme = useTheme();
+  const postDate = new Date(date)
+    .toLocaleDateString("pt-BR", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
+    .replace(".", "")
+    .replace(/de /g, "");
+
+  return (
+    <Box
+      styleSheet={{
+        position: "relative",
+        paddingBotton: "35px",
+      }}
+    >
+      <FeedPostSideTimeline />
+      {/* Date  */}
+      <Text
+        variant="body4"
+        styleSheet={{ fontWeight: 'bold', marginBottom: '32px', marginLeft: '4px' }}
+      >
+        {postDate}
+      </Text>
+      {/* title  */}
+       {title}
     </Box>
-   )
+  );
+}
 
+function FeedPostSideTimeline() {
+  const theme = useTheme();
+  return (
+    <Box
+      styleSheet={{
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        color: theme.colors.neutral.x200,
+        marginLeft: "-16px",
+      }}
+    >
+      <Icon
+        size="sm"
+        name="clock_fill"
+        styleSheet={{
+          transform: {
+            xs: "translateX(-50%) scale(.9)",
+            sm: "translateX(-50%)",
+          },
+          position: "absolute",
+          top: "0",
+          left: "0",
+        }}
+      />
+      <Box
+        styleSheet={{
+          top: "16px",
+          bottom: "0",
+          margin: "auto",
+          position: "absolute",
+          width: "1px",
+          backgroundColor: "currentColor",
 
-
-
-
+        }}
+      />
+    </Box>
+  );
 }
