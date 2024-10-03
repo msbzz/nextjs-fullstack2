@@ -9,6 +9,7 @@ export interface Post {
     excerpt: string;
     tags: string[];
   };
+  image?:string;
   slug: string; // ID do post / titlulo resumido
   title: string;
   content: string;
@@ -31,6 +32,7 @@ export default function PostsService() {
              excerpt:data.excerpt,
              tags:data.tags,
           },
+          image: data.image || "",
           slug:postFileName.replace(".md",""),
           title:data.title,
           content,

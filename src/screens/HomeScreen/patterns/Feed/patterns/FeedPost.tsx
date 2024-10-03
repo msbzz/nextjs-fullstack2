@@ -1,5 +1,6 @@
 import Box from "@src/components/Box/Box";
 import Button from "@src/components/Button/Button";
+import ButtonBase from "@src/components/Button/ButtonBase";
 import Icon from "@src/components/Icon/Icon";
 import Image from "@src/components/Image/Image";
 import Link from "@src/components/Link/Link";
@@ -12,9 +13,10 @@ interface FeedPostProps {
   url: string;
   date: string;
   tags: string[];
+  image?:string;
 }
 
-export function FeedPost({ title, excerpt, date, tags, url }: FeedPostProps) {
+export function FeedPost({ title, excerpt, date, tags, url,image }: FeedPostProps) {
   const theme = useTheme();
   const postDate = new Date(date)
     .toLocaleDateString("pt-BR", {
@@ -79,10 +81,11 @@ export function FeedPost({ title, excerpt, date, tags, url }: FeedPostProps) {
       >
         {excerpt}
       </Text>
-            {/* Tags */}
-            <Box styleSheet={{
+       {/* Tags */}
+        <Box styleSheet={{
         flexDirection: 'row',
         gap: '4px',
+        marginBottom:"29px",
       }}>
         {tags?.map((tag) => (
           <Link
@@ -105,6 +108,22 @@ export function FeedPost({ title, excerpt, date, tags, url }: FeedPostProps) {
           </Link>
         ))}
       </Box>
+      {/* image */}
+      {image && (
+        <Button.Base
+         href={url}
+         styleSheet={{ hover:{opacity:0.8}}}
+        >
+          <Image
+            styleSheet={{
+              width:"100%",
+              marginBottom:"10px",
+            }}
+            src={image}
+            alt="Image descrition"
+          />
+        </Button.Base>
+      )}
     </Box>
   );
 }

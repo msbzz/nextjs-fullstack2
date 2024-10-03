@@ -145,7 +145,7 @@ Feed.Posts = ({ posts }: FeedPostsProps) => {
       <Text variant="heading3" styleSheet={{marginBottom:"27px"}}>
         Útilmas atualizações
       </Text>
-      {posts.map(({slug, title,metadata}) => {
+      {posts.map(({slug, title,metadata,image}) => {
         const {date, excerpt,tags,url} = metadata;
         return <FeedPost key={String(slug)}
          title={title}
@@ -153,6 +153,7 @@ Feed.Posts = ({ posts }: FeedPostsProps) => {
          excerpt={excerpt}
          tags={tags}
          url={url}
+         image={image}
          />;
       })}
     </Box>
